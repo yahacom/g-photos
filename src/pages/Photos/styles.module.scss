@@ -1,0 +1,37 @@
+.albums {
+  .albumsList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    .item {
+      width: 30%;
+      padding: 7px;
+      text-decoration: none;
+    }
+    .itemCover {
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 756px) {
+  .albums .albumsList .item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .albums .albumsList .item {
+    width: 100%;
+  }
+}
