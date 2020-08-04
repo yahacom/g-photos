@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import {authActions} from '../../ducks/auth';
 import {store} from '../../store';
 
-const HeaderComponent = ({title, user, email}) => {
+const HeaderComponent = ({title, user, email, showLogOut}) => {
   const logOut = (e) => {
     e.preventDefault();
     store.dispatch(authActions.signOut());
@@ -14,9 +14,13 @@ const HeaderComponent = ({title, user, email}) => {
         <h1>{title}</h1>
         <div className={styles.userInfo}>{user}<br />{email}</div>
       </div>
-      <a href='#' onClick={logOut}>Log Out</a>
+      {showLogOut && <a href='#' onClick={logOut}>Log Out</a>}
     </div>
   )
 };
+
+HeaderComponent.defaultProps = {
+  showLogOut: true,
+}
 
 export default HeaderComponent;

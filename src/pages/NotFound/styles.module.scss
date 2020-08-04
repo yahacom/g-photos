@@ -1,0 +1,11 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
