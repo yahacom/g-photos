@@ -21,4 +21,25 @@ export default {
       error,
     };
   },
+
+  photosRequest(payload) {
+    return {
+      type: types.PHOTOS_REQUEST,
+      payload,
+    };
+  },
+
+  photosSuccess(payload) {
+    return {
+      type: types.PHOTOS_SUCCESS,
+      payload,
+    };
+  },
+
+  photosError(error) {
+    return {
+      type: types.PHOTOS_FAILURE,
+      error,
+    };
+  },
 };

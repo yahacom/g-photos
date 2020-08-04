@@ -3,6 +3,7 @@ import types from './types';
 const INITIAL_STATE = {
   loading: false,
   albums: [],
+  photos: [],
 };
 
 function albums(state = INITIAL_STATE, { type, payload }) {
@@ -25,6 +26,26 @@ function albums(state = INITIAL_STATE, { type, payload }) {
         ...state,
         loading: false,
         albums: [],
+      };
+    case types.PHOTOS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        photos: [],
+      };
+    case types.PHOTOS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        photos: [
+          ...payload,
+        ]
+      };
+    case types.PHOTOS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        photos: [],
       };
     default:
       return state;
