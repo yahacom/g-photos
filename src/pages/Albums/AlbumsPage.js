@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Header from '../../components/Header';
+import {Header, Loader} from '../../components'
 import {Link} from 'react-router-dom';
 import styles from './styles.module.scss';
 
@@ -27,6 +27,7 @@ const AlbumsPage = ({loading, albums, isInitialized, getAlbums, name, email}) =>
       <div className={styles.albumsList}>
         {renderAlbums()}
       </div>
+      {loading && <Loader />}
     </div>
   )
 };

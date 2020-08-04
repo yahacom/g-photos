@@ -4,7 +4,7 @@ import { authActions } from '../../ducks/auth';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    loading: state.auth.loading,
+    loading: state.auth.loading || !state.initialize.isInitialized,
   };
 };
 

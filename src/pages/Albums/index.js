@@ -4,7 +4,7 @@ import { albumsActions } from '../../ducks/albums';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    loading: state.albums.loading,
+    loading: state.albums.loading || !state.initialize.isInitialized,
     albums: state.albums.albums,
     isInitialized: state.initialize.isInitialized,
     name: state.auth.name,

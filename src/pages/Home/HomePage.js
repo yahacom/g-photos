@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import gPhotosIcon from '../../assets/icon_google_photos.svg';
+import {Loader} from '../../components';
 
 const HomePage = ({loading, signIn}) => {
   return (
@@ -10,6 +11,7 @@ const HomePage = ({loading, signIn}) => {
           <img src={gPhotosIcon} className={styles.gLogo} alt="logo" />
         </button>
       </div>
+      {loading && <Loader />}
     </div>
   );
 };
