@@ -1,6 +1,7 @@
 import {takeEvery, put, all, call} from 'redux-saga/effects';
 import types from './types';
 import actions from './actions';
+import {authActions} from '../auth';
 import getAlbums from '../../api/albums';
 import getPhotos from '../../api/photos';
 
@@ -10,6 +11,7 @@ function* albumsSagaWorker() {
     yield put(actions.albumsSuccess(response));
   } catch (error) {
     yield put(actions.albumsError(error));
+    yield put(authActions.signOut());
   }
 }
 
@@ -19,6 +21,7 @@ function* photosSagaWorker({payload}) {
     yield put(actions.photosSuccess(response))
   } catch (error) {
     yield put(actions.photosError(error));
+    yield put(authActions.signOut());
   }
 }
 
