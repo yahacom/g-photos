@@ -12,7 +12,8 @@ const appReducer = combineReducers({
 
 export default (state, action) => {
   if (action.type === authTypes.SIGN_OUT) {
-    state = undefined;
+    const {initialize} = state;
+    state = {initialize};
   }
   return appReducer(state, action);
 };
