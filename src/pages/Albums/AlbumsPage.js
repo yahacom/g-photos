@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import Header from '../../components/Header';
 
-const AlbumsPage = () => {
+const AlbumsPage = ({loading, albums, isInitialized, getAlbums}) => {
+  useEffect(() => {
+    if (isInitialized) {
+      getAlbums();
+    }
+  }, [isInitialized]);
   return (
-    <h1>Albums list</h1>
+    <div>
+      <Header/>
+      <h1>Albums list</h1>
+    </div>
   )
 };
 
