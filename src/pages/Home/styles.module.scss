@@ -1,15 +1,12 @@
 .home {
-    height: 100%;
-}
-
-.page-wrapper {
+  height: 100%;
+  .pageWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
-
-.button {
+  }
+  .button {
     width: 30%;
     height: 30%;
     display: flex;
@@ -21,18 +18,16 @@
     cursor: pointer;
     box-shadow: 0 0 7px 1px rgba(0, 0, 0, .2);
     outline: none;
-}
-
-.button:focus {
-    border: 1px solid #8ac9f8;
-}
-
-.button .g-logo {
-    width: 20%;
-    height: 20%;
-    transition: transform 0.5s ease;
-}
-
-.button:hover .g-logo {
-    transform: scale(1.2);
+    .gLogo {
+      width: 20%;
+      height: 20%;
+      transition: transform 0.5s ease;
+    }
+    &:focus {
+      border: 1px solid #8ac9f8;
+    }
+    &:hover .gLogo {
+      transform: scale(1.2);
+    }
+  }
 }

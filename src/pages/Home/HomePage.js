@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './styles.module.scss';
 import gPhotosIcon from '../../assets/icon_google_photos.svg';
 
 const HomeScreen = () => {
@@ -7,10 +7,10 @@ const HomeScreen = () => {
 
   };
   return (
-    <div className={'home'}>
-      <div className={'page-wrapper'}>
-        <button className={'button'} onClick={onClick}>
-          <img src={gPhotosIcon} className="g-logo" alt="logo" />
+    <div className={styles.home}>
+      <div className={styles.pageWrapper}>
+        <button className={styles.button} onClick={onClick}>
+          <img src={gPhotosIcon} className={styles.gLogo} alt="logo" />
         </button>
       </div>
     </div>
