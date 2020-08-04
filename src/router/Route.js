@@ -1,18 +1,22 @@
 import React from "react";
+import {connect} from 'react-redux';
 import {Route, Redirect} from "react-router-dom";
 
-export default function RouteWrapper({
+const mapStateToProps = (state) => ({
+  isAuthorized: state.auth.isAuthorized,
+});
+
+const RouteWrapper = ({
   component: Component,
   isPrivate,
+  isAuthorized,
   ...rest
-}) {
-  const signed = false;
-
-  if (isPrivate && !signed) {
+}) => {
+  if (isPrivate && !isAuthorized) {
     return <Redirect to="/" />;
   }
 
-  if (!isPrivate && signed) {
+  if (!isPrivate && isAuthorized) {
     return <Redirect to="/albums" />;
   }
 
@@ -22,3 +26,5 @@ export default function RouteWrapper({
 RouteWrapper.defaultProps = {
   isPrivate: false
 };
+
+export default connect(mapStateToProps)(RouteWrapper);
