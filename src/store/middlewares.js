@@ -3,4 +3,10 @@ import logger from 'redux-logger';
 
 export const sagaMiddleware = createSagaMiddleware();
 
-export const middlewares = [sagaMiddleware, logger];
+let middlewares = [sagaMiddleware];
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares = [...middlewares, logger];
+}
+
+export {middlewares};
