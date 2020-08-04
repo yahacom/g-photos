@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import {Link} from 'react-router-dom';
 import styles from './styles.module.scss';
 
-const AlbumsPage = ({loading, albums, isInitialized, getAlbums}) => {
+const AlbumsPage = ({loading, albums, isInitialized, getAlbums, name, email}) => {
   useEffect(() => {
     if (isInitialized) {
       getAlbums();
@@ -20,7 +20,10 @@ const AlbumsPage = ({loading, albums, isInitialized, getAlbums}) => {
   ))
   return (
     <div className={styles.albums}>
-      <Header/>
+      <Header
+        title='Albums list'
+        user={name}
+        email={email} />
       <div className={styles.albumsList}>
         {renderAlbums()}
       </div>

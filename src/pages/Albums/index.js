@@ -7,6 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     loading: state.albums.loading,
     albums: state.albums.albums,
     isInitialized: state.initialize.isInitialized,
+    name: state.auth.name,
+    email: state.auth.email,
   };
 };
 
