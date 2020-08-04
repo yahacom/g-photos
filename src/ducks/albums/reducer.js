@@ -2,31 +2,33 @@ import types from './types';
 
 const INITIAL_STATE = {
   loading: false,
-  isAuthorized: false,
+  albums: [],
 };
 
-function auth(state = INITIAL_STATE, { type, payload }) {
+function albums(state = INITIAL_STATE, { type, payload }) {
   switch (type) {
-    case types.SIGN_IN_REQUEST:
+    case types.ALBUMS_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case types.SIGN_IN_SUCCESS:
+    case types.ALBUMS_SUCCESS:
       return {
         ...state,
         loading: false,
-        isAuthorized: payload,
+        albums: [
+          ...payload,
+        ]
       };
-    case types.SIGN_IN_FAILURE:
+    case types.ALBUMS_FAILURE:
       return {
         ...state,
         loading: false,
-        isAuthorized: false,
+        albums: [],
       };
     default:
       return state;
   }
 }
 
-export default auth;
+export default albums;
