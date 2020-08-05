@@ -1,5 +1,10 @@
 export default async () => {
   const {gapi} = window;
   const authInstance = gapi.auth2.getAuthInstance();
-  return await authInstance.signIn();
+  await authInstance.signIn();
+  const user = await authInstance.currentUser.get().getBasicProfile();
+  return {
+    name: user.getName(),
+    email: user.getEmail(),
+  };
 }

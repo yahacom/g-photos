@@ -6,10 +6,7 @@ import auth from '../../api/auth';
 function* signInSagaWorker() {
   try {
     const response = yield call(auth);
-    yield put(actions.signInSuccess({
-      name: response.Ot.Cd,
-      email: response.Ot.yu
-    }));
+    yield put(actions.signInSuccess(response));
   } catch (error) {
     yield put(actions.signInError(error));
   }
