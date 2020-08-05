@@ -8,7 +8,7 @@ import getPhotos from '../../api/photos';
 function* albumsSagaWorker() {
   try {
     const response = yield call(getAlbums);
-    yield put(actions.albumsSuccess(response));
+    yield put(actions.albumsSuccess(response ? response : []));
   } catch (error) {
     yield put(actions.albumsError(error));
     yield put(authActions.signOut());
@@ -18,7 +18,7 @@ function* albumsSagaWorker() {
 function* photosSagaWorker({payload}) {
   try {
     const response = yield call(getPhotos, payload);
-    yield put(actions.photosSuccess(response))
+    yield put(actions.photosSuccess(response ? response : []))
   } catch (error) {
     yield put(actions.photosError(error));
     yield put(authActions.signOut());

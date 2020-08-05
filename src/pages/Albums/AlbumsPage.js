@@ -17,7 +17,10 @@ const AlbumsPage = ({loading, albums, isInitialized, getAlbums, name, email}) =>
         {mediaItemsCount} photos inside album
       </div>
     </Link>
-  ))
+  ));
+  const renderEmpty = () => (
+    !loading ? <p>You haven't any albums</p> : null
+  );
   return (
     <div className={styles.albums}>
       <Header
@@ -25,7 +28,7 @@ const AlbumsPage = ({loading, albums, isInitialized, getAlbums, name, email}) =>
         user={name}
         email={email} />
       <div className={styles.albumsList}>
-        {renderAlbums()}
+        {albums.length > 0 ? renderAlbums() : renderEmpty()}
       </div>
       {loading && <Loader />}
     </div>
